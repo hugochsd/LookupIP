@@ -19,9 +19,9 @@ def main():
     choice = input("Enter:")
     if choice == '1':
         # read Excel file
-        #IPdf = pd.read_excel("input.xlsx", "infected_ips")
-        #IP_list = IPdf['SenderIPv4'].values.tolist()
-        IP_list = ['122.226.181.165']
+        IPdf = pd.read_excel("C:/input.xlsx", "infected_ips")
+        IP_list = IPdf['SenderIPv4'].values.tolist()
+        #IP_list = ['122.226.181.165']
         print("#######################################################")
         print("#        USING APIVoid for IPV4                       #")
         print("#        ENGINES USED : 80+                           #")
@@ -88,8 +88,8 @@ def main():
         goodIPdata = pd.DataFrame({'Cleared IPs':goodIPs})
         badIPdata = pd.DataFrame({'RISK IPs':badIPs})
 
-        writer = pd.ExcelWriter('goodIP_Results.xlsx')
-        writer2 = pd.ExcelWriter('badIP_Results.xlsx')
+        writer = pd.ExcelWriter('good_IP_Results.xlsx')
+        writer2 = pd.ExcelWriter('bad_IP_Results.xlsx')
         goodIPdata.to_excel(writer, sheet_name='clearedIPsheet')
         badIPdata.to_excel(writer2, sheet_name='riskyIPsheet')
         workbook = writer.book
@@ -103,9 +103,9 @@ def main():
 
     elif choice == '2':
         time.sleep(0.5)
-        #URLdf = pd.read_excel('input.xlsx', "URL")
-        #URL_list = URLdf['URL'].values.tolist()
-        URL_list = ['https://www.google.com/']
+        URLdf = pd.read_excel('C:/input.xlsx', "URL")
+        URL_list = URLdf['URL'].values.tolist()
+        #URL_list = ['https://www.google.com/']
         print("#######################################################")
         print("#            USING APIVoid for URL                    #")
         print("#            ENGINES USED : 50+                       #")
@@ -151,8 +151,8 @@ def main():
         goodURLdata = pd.DataFrame({'Cleared IPs': goodURLs})
         badURLdata = pd.DataFrame({'RISK IPs': badURLs})
 
-        writer = pd.ExcelWriter('goodURL_Results.xlsx')
-        writer2 = pd.ExcelWriter('badURL_Results.xlsx')
+        writer = pd.ExcelWriter('good_URL_Results.xlsx')
+        writer2 = pd.ExcelWriter('bad_URL_Results.xlsx')
         goodURLdata.to_excel(writer, sheet_name='cleared URL sheet')
         badURLdata.to_excel(writer2, sheet_name='risky URL sheet')
         workbook = writer.book
